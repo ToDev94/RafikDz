@@ -1,91 +1,73 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+"use client";
 
-const inter = Inter({ subsets: ['latin'] })
+import classes from "./page.module.css";
+import Nav from "@/components/Nav";
+import Hero from "@/components/Hero";
+import LevelPrev from "@/components/LevelPrev";
+
+import { FiChevronRight } from "react-icons/fi";
+
+import {
+  ChakraProvider,
+  Box,
+  VStack,
+  Container,
+  SimpleGrid,
+  Button,
+  Center,
+} from "@chakra-ui/react";
+
+import { extendTheme } from "@chakra-ui/react";
+
+const theme = extendTheme({
+  fonts: {
+    heading: `"Changa", sans-serif`,
+    body: `"Changa", sans-serif`,
+  },
+});
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.jsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <ChakraProvider theme={theme}>
+      <main className={classes.main}>
+        <VStack
+          flexGrow={0}
+          flexBasis="auto"
+          flexShrink={1}
+          as="section"
+          align="stretch"
+          className={classes.upper}
+        >
+          <Box className={classes.upper}>
+            <Nav logoColor="white" />
+            <Hero />
+            <SimpleGrid
+              m="auto"
+              maxW="55rem"
+              gridRowGap="1rem"
+              gridColumnGap="1rem"
+              minChildWidth={["100px", "150px", "200px"]}
+              justifyItems="center"
+              paddingBottom={["2rem", "4rem"]}
+            >
+              <LevelPrev>الجامعي</LevelPrev>
+              <LevelPrev>الثانوي</LevelPrev>
+              <LevelPrev>المتوسط</LevelPrev>
+              <LevelPrev>الابتدائي</LevelPrev>
+            </SimpleGrid>
+          </Box>
+        </VStack>
+        <Center flexGrow={1} flexBasis="auto" flexShrink={1}>
+          <Button
+            colorScheme="teal"
+            variant="outline"
+            borderRadius="3px"
+            rightIcon={<FiChevronRight />}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            ساهم معنا في إثراء الموقع{" "}
+          </Button>
+        </Center>
+      </main>
+    </ChakraProvider>
+  );
 }
