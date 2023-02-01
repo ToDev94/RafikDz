@@ -151,8 +151,17 @@ const ArabicAccordion = () => {
       <AccordionItem>
         <h2>
           <AccordionButton>
-            <Box as="span" flex="1" textAlign="right">
-              الثانوي
+            <Box
+              as="span"
+              justifyContent="space-between"
+              display="flex"
+              flex="1"
+              textAlign="right"
+              alignItems="center"
+              px={3}
+            >
+              <Text>الثانوي</Text>
+              <Badge> 121 </Badge>
             </Box>
             <AccordionIcon />
           </AccordionButton>
