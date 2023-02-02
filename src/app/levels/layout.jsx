@@ -8,7 +8,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  useColorModeValue,
+  Link,
   Button,
   Center,
   DrawerBody,
@@ -18,6 +18,7 @@ import {
   Text,
   Badge,
 } from "@chakra-ui/react";
+
 import React from "react";
 import {
   Accordion,
@@ -27,7 +28,7 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiLink } from "react-icons/fi";
 import Contactus from "@/components/Contactus";
 
 const layout = ({ children }) => {
@@ -107,7 +108,7 @@ const SideBar = () => {
       py={4}
       justifyContent="center"
     >
-      <Flex w="100%" flexDirection="column" alignItems="center">
+      <Flex w="100%" gap={2} flexDirection="column" alignItems="center">
         <Contactus />
         <SideBarContent />
       </Flex>
@@ -125,7 +126,7 @@ const SideBarContent = () => {
 
 const ArabicAccordion = () => {
   return (
-    <Accordion color="whiteAlpha.700" dir="rtl" allowToggle>
+    <Accordion color="whiteAlpha.700" dir="rtl" variant="custom" allowToggle>
       <AccordionItem>
         <h2>
           <AccordionButton>
@@ -144,32 +145,36 @@ const ArabicAccordion = () => {
             <AccordionIcon />
           </AccordionButton>
         </h2>
-        <AccordionPanel textAlign="right" w="100%" pb={10}>
-          <Box>اليبسيشسي يسبسي سي سيبل سي سيبلسي سيب سيبل سسيب</Box>
-        </AccordionPanel>
-      </AccordionItem>
-      <AccordionItem>
-        <h2>
-          <AccordionButton>
-            <Box
-              as="span"
-              justifyContent="space-between"
-              display="flex"
-              flex="1"
-              textAlign="right"
-              alignItems="center"
-              px={3}
-            >
-              <Text>الثانوي</Text>
-              <Badge> 121 </Badge>
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-        </h2>
-        <AccordionPanel textAlign="right" w="100%" pb={10}>
-          <Box>اليبسيشسي يسبسي سي سيبل سي سيبلسي سيب سيبل سسيب</Box>
+        <AccordionPanel textAlign="right" w="100%" p={0}>
+          <Flex direction="column" gap={1}>
+            <NavigationItem num={8123}> الأولى ثانوي </NavigationItem>
+            <NavigationItem num={4523}> الثانية ثانوي </NavigationItem>
+            <NavigationItem num={2423}> الثالثة ثانوي </NavigationItem>
+          </Flex>
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
+  );
+};
+
+const NavigationItem = (props) => {
+  const { children, num } = props;
+  return (
+    <Link
+      href="#"
+      w="100%"
+      transition="all 0.3s"
+      _hover={{ bg: "gray.600" }}
+      px={2}
+      py={2}
+    >
+      <Flex justifyContent="space-between" alignItems="center">
+        <Flex alignItems="center" gap={4}>
+          <FiLink />
+          <Text size="xs">{children}</Text>
+        </Flex>
+        <Badge colorScheme="teal">{num}</Badge>
+      </Flex>
+    </Link>
   );
 };

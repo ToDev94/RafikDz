@@ -3,12 +3,16 @@
 import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
+import { accordionTheme } from "themes/AccordionTheme";
 
 export default function RootLayout({ children }) {
   const theme = extendTheme({
     fonts: {
       heading: `"Changa", sans-serif`,
       body: `"Changa", sans-serif`,
+    },
+    components: {
+      Accordion: accordionTheme,
     },
   });
   return (
