@@ -128,28 +128,45 @@ const ArabicAccordion = () => {
   return (
     <Accordion color="whiteAlpha.700" dir="rtl" variant="custom" allowToggle>
       <AccordionItem>
-        <h2>
-          <AccordionButton>
-            <Box
-              as="span"
-              justifyContent="space-between"
-              display="flex"
-              flex="1"
-              textAlign="right"
-              alignItems="center"
-              px={3}
-            >
-              <Text>الثانوي</Text>
-              <Badge> 121 </Badge>
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-        </h2>
+        <AccordionButton>
+          <Box
+            as="span"
+            justifyContent="space-between"
+            display="flex"
+            flex="1"
+            textAlign="right"
+            alignItems="center"
+            px={3}
+          >
+            <Text>الثانوي</Text>
+            <Badge> 121 </Badge>
+          </Box>
+          <AccordionIcon />
+        </AccordionButton>
+
         <AccordionPanel textAlign="right" w="100%" p={0}>
           <Flex direction="column" gap={1}>
-            <NavigationItem num={8123}> الأولى ثانوي </NavigationItem>
+            <Link
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              href="#"
+              w="100%"
+              transition="all 0.3s"
+              _hover={{ bg: "gray.600" }}
+              px={2}
+              py={2}
+            >
+              <Flex alignItems="center" gap={4}>
+                <FiLink />
+                <Text size="xs">ثانوي اولي</Text>
+              </Flex>
+              <Badge colorScheme="teal">1587</Badge>
+            </Link>
+
+            {/* <NavigationItem num={8123}> الأولى ثانوي </NavigationItem>
             <NavigationItem num={4523}> الثانية ثانوي </NavigationItem>
-            <NavigationItem num={2423}> الثالثة ثانوي </NavigationItem>
+            <NavigationItem num={2423}> الثالثة ثانوي </NavigationItem> */}
           </Flex>
         </AccordionPanel>
       </AccordionItem>
@@ -161,6 +178,9 @@ const NavigationItem = (props) => {
   const { children, num } = props;
   return (
     <Link
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
       href="#"
       w="100%"
       transition="all 0.3s"
@@ -168,13 +188,11 @@ const NavigationItem = (props) => {
       px={2}
       py={2}
     >
-      <Flex justifyContent="space-between" alignItems="center">
-        <Flex alignItems="center" gap={4}>
-          <FiLink />
-          <Text size="xs">{children}</Text>
-        </Flex>
-        <Badge colorScheme="teal">{num}</Badge>
+      <Flex alignItems="center" gap={4}>
+        <FiLink />
+        <Text size="xs">{children}</Text>
       </Flex>
+      <Badge colorScheme="teal">{num}</Badge>
     </Link>
   );
 };
