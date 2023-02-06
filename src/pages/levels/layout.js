@@ -1,4 +1,3 @@
-"use client";
 import {
   Flex,
   Heading,
@@ -31,7 +30,29 @@ import {
 import { FiMenu, FiLink } from "react-icons/fi";
 import Contactus from "@/components/Contactus";
 
-const layout = ({ children }) => {
+const LevelsDATA = {
+  primary: [
+    { key: 1, href: "#", name: "التحضيري", num: 1256 },
+    { key: 2, href: "#", name: "أولى ابتدائي", num: 1256 },
+    { key: 3, href: "#", name: "الثانية ابتدائي", num: 1256 },
+    { key: 4, href: "#", name: "الثالثة ابتدائي", num: 1256 },
+    { key: 5, href: "#", name: "الرابعة ابتدائي", num: 1256 },
+    { key: 6, href: "#", name: "الخامسة ابتدائي", num: 1256 },
+  ],
+  middle: [
+    { key: 1, href: "#", name: "أولى متوسط", num: 4586 },
+    { key: 2, href: "#", name: "الثانية متوسط", num: 4586 },
+    { key: 3, href: "#", name: "الثالثة متوسط", num: 4586 },
+    { key: 4, href: "#", name: "الرابعة متوسط", num: 4586 },
+  ],
+  secondary: [
+    { key: 1, href: "#", name: "أولى ثانوي", num: 2365 },
+    { key: 2, href: "#", name: "الثانية ثانوي", num: 2365 },
+    { key: 3, href: "#", name: "الثالثة ثانوي", num: 2365 },
+  ],
+};
+
+const Layout = ({ children }) => {
   return (
     <main>
       <Flex h="100vh">
@@ -46,7 +67,7 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default Layout;
 
 const Nav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -138,6 +159,64 @@ const ArabicAccordion = () => {
             alignItems="center"
             px={3}
           >
+            <Text>الإبتدائي</Text>
+            <Badge> 1658 </Badge>
+          </Box>
+          <AccordionIcon />
+        </AccordionButton>
+
+        <AccordionPanel textAlign="right" w="100%" p={0}>
+          <Flex direction="column" gap={1}>
+            {LevelsDATA.primary.map((item) => {
+              return (
+                <NavigationItem key={item.key} num={item.num} link={item.href}>
+                  {item.name}
+                </NavigationItem>
+              );
+            })}
+          </Flex>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton>
+          <Box
+            as="span"
+            justifyContent="space-between"
+            display="flex"
+            flex="1"
+            textAlign="right"
+            alignItems="center"
+            px={3}
+          >
+            <Text>المتوسط</Text>
+            <Badge> 1258 </Badge>
+          </Box>
+          <AccordionIcon />
+        </AccordionButton>
+
+        <AccordionPanel textAlign="right" w="100%" p={0}>
+          <Flex direction="column" gap={1}>
+            {LevelsDATA.middle.map((item) => {
+              return (
+                <NavigationItem key={item.key} num={item.num} link={item.href}>
+                  {item.name}
+                </NavigationItem>
+              );
+            })}
+          </Flex>
+        </AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton>
+          <Box
+            as="span"
+            justifyContent="space-between"
+            display="flex"
+            flex="1"
+            textAlign="right"
+            alignItems="center"
+            px={3}
+          >
             <Text>الثانوي</Text>
             <Badge> 121 </Badge>
           </Box>
@@ -146,9 +225,13 @@ const ArabicAccordion = () => {
 
         <AccordionPanel textAlign="right" w="100%" p={0}>
           <Flex direction="column" gap={1}>
-            <NavigationItem num={8123}> الأولى ثانوي </NavigationItem>
-            <NavigationItem num={4523}> الثانية ثانوي </NavigationItem>
-            <NavigationItem num={2423}> الثالثة ثانوي </NavigationItem>
+            {LevelsDATA.secondary.map((item) => {
+              return (
+                <NavigationItem key={item.key} num={item.num} link={item.href}>
+                  {item.name}
+                </NavigationItem>
+              );
+            })}
           </Flex>
         </AccordionPanel>
       </AccordionItem>
@@ -157,13 +240,13 @@ const ArabicAccordion = () => {
 };
 
 const NavigationItem = (props) => {
-  const { children, num } = props;
+  const { children, num, link } = props;
   return (
     <Link
       display="flex"
       justifyContent="space-between"
       alignItems="center"
-      href="#"
+      href={link}
       w="100%"
       transition="all 0.3s"
       _hover={{ bg: "gray.600" }}

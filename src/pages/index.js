@@ -1,6 +1,3 @@
-"use client";
-
-"use client";
 import classes from "./page.module.css";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
