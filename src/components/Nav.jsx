@@ -1,6 +1,5 @@
-"use client";
 import React from "react";
-import { Button, Box, Heading } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import classes from "./Nav.module.css";
 import Contactus from "./Contactus";
 

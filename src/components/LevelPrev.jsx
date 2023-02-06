@@ -1,14 +1,11 @@
-"use client";
-
 import React from "react";
-import classes from "./LevelPrev.module.css";
+
 import NextLink from "next/link";
 import { Box, Image, Link, VStack, Text } from "@chakra-ui/react";
 
 const LevelPrev = ({ children }) => {
   return (
     <Link
-      className={classes.prevlink}
       as={NextLink}
       display="block"
       href="./levels"
@@ -34,7 +31,6 @@ const LevelPrev = ({ children }) => {
             overflow="hidden"
           >
             <Image
-              className={classes.previmg}
               src="./students.jpg"
               w={["100px", "125px", "200px"]}
               maxW="none"

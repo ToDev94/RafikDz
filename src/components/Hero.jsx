@@ -1,7 +1,6 @@
 "use client";
 import { Container, Text, Heading, VStack } from "@chakra-ui/react";
 import React from "react";
-import classes from "./Hero.module.css";
 
 const Hero = () => {
   return (

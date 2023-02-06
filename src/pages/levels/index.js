@@ -1,10 +1,12 @@
 import React from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
+import PageNavItem from "@/components/PageNavItem";
+import { FiFolder } from "react-icons/fi";
 import Layout from "./layout";
 
 export default function Levels() {
   return (
-    <Flex>
+    <Flex direction="column" alignItems="center" gap={10}>
       <Box
         w="100%"
         display="flex"
@@ -16,6 +18,26 @@ export default function Levels() {
           الثانوي
         </Heading>
       </Box>
+      <Flex w="100%" direction="column" gap={5}>
+        <PageNavItem
+          link="#"
+          icon={<FiFolder color="#f1f1f1" />}
+          num={125}
+          text="أولى ثانوي"
+        />
+        <PageNavItem
+          link="#"
+          icon={<FiFolder color="#f1f1f1" />}
+          num={125}
+          text="ثانية ثانوي"
+        />
+        <PageNavItem
+          link="#"
+          icon={<FiFolder color="#f1f1f1" />}
+          num={125}
+          text="ثالثة ثانوي"
+        />
+      </Flex>
     </Flex>
   );
 }
