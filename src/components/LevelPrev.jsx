@@ -3,12 +3,12 @@ import React from "react";
 import NextLink from "next/link";
 import { Box, Image, Link, VStack, Text } from "@chakra-ui/react";
 
-const LevelPrev = ({ children }) => {
+const LevelPrev = ({ children, href }) => {
   return (
     <Link
       as={NextLink}
       display="block"
-      href="./levels"
+      href={href}
       width="fit-content"
       borderRadius="50%"
       _hover={{ textDecor: "none" }}

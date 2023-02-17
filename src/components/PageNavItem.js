@@ -1,18 +1,20 @@
 import React from "react";
 import { Badge, Flex, Link, Text, Box } from "@chakra-ui/react";
 
-const PageNavItem = ({ icon, num, text, link }) => {
+const PageNavItem = ({ icon, num, text, link, w, dir }) => {
+  const dirValue = dir || "row";
   return (
     <Link
       href={link}
       _hover={{ textDecoration: "none" }}
       textDecor="none"
-      w="50%"
-      m="auto"
+      w={w}
+      display="block"
     >
       <Flex
         background="gray.700"
         alignItems="center"
+        flexDir={dir}
         paddingLeft={4}
         borderRadius={5}
         justifyContent="space-between"

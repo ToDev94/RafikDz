@@ -55,7 +55,7 @@ const LevelsDATA = {
 const Layout = ({ children }) => {
   return (
     <main>
-      <Flex h="100vh">
+      <Flex minH="100vh">
         <Flex flexDirection="column" bg="white" flex={4}>
           <Nav />
           {children}
