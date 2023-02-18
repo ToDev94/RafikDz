@@ -54,12 +54,13 @@ const subjects = ({ data }) => {
         justifyContent="space-around"
         maxH="100%"
         alignItems="center"
+        px={5}
       >
         {data.map((item) => (
           <PageNavItem
             key={item.id}
             dir="row-reverse"
-            w={["20rem", "25rem", "30rem"]}
+            w={{ base: "100%", md: "100%", lg: "25rem" }}
             link="#"
             icon={<FiFolder color="#f1f1f1" />}
             num={125}
@@ -102,8 +103,6 @@ export async function getStaticProps(context) {
   let data;
   switch (context.params.subjects) {
     case "1s":
-    case "2s":
-    case "3s":
       data = [
         { id: 1, name: "اللغة العربية", link: "#" },
         { id: 2, name: "اللغة الإنجليزية", link: "#" },
@@ -115,6 +114,29 @@ export async function getStaticProps(context) {
         { id: 8, name: "التاريخ و الجغرافيا", link: "#" },
         { id: 9, name: "العلوم الأسلامية", link: "#" },
         { id: 10, name: "التربية الفنية", link: "#" },
+        { id: 10, name: "التكنولوجيا", link: "#" },
+        { id: 10, name: "الإعلام الآلي", link: "#" },
+      ];
+      break;
+    case "2s":
+    case "3s":
+      data = [
+        { id: 1, name: "اللغة العربية", link: "#" },
+        { id: 2, name: "اللغة الإنجليزية", link: "#" },
+        { id: 3, name: "اللغة الفرنسية", link: "#" },
+        { id: 3, name: "اللغة الألمانية", link: "#" },
+        { id: 4, name: "اللغة الامازيغية", link: "#" },
+        { id: 5, name: "الرياضيات", link: "#" },
+        { id: 6, name: "العلوم الطبيعية", link: "#" },
+        { id: 7, name: "العلوم الفيزيائية", link: "#" },
+        { id: 8, name: "التاريخ و الجغرافيا", link: "#" },
+        { id: 9, name: "العلوم الأسلامية", link: "#" },
+        { id: 10, name: "التربية الفنية", link: "#" },
+        { id: 10, name: "هندسة كهربائية", link: "#" },
+        { id: 10, name: "هندسة مدنية", link: "#" },
+        { id: 10, name: "فلسفة", link: "#" },
+        { id: 10, name: "هندسة طرائق", link: "#" },
+        { id: 10, name: "هندسة ميكانيكية", link: "#" },
       ];
       break;
 

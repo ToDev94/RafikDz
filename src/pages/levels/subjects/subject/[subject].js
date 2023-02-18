@@ -3,7 +3,7 @@ import { Flex, Box, Heading } from "@chakra-ui/react";
 import Layout from "../../layout";
 import PdfViewer from "@/components/PdfViewer";
 
-import { MongoClient } from "mongodb";
+import BranchBox from "@/components/BranchBox";
 
 const subject = (props) => {
   return (
@@ -23,11 +23,14 @@ const subject = (props) => {
         backgroundImage="linear-gradient(to right, #3db6b3, #3b9b99, #3db6b3)"
       >
         <Heading lineHeight={2} size="2xl" color="gray.700">
-          الموضوع
+          المحتوى
         </Heading>
       </Box>
-      <PdfViewer docs={props.serializableDocs} />
-      <PdfViewer docs={props.serializableDocs} />
+      <Flex flexWrap="wrap" justifyContent="center" gap={5} w="90%">
+        <BranchBox />
+        <BranchBox />
+        <BranchBox />
+      </Flex>
     </Flex>
   );
 };
@@ -37,9 +40,16 @@ export default subject;
 subject.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
+/* 
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { subject: "test" } }],
+    fallback: false, // can also be true or 'blocking'
+  };
+} */
 
-export async function getServerSideProps(context) {
-  require("dotenv").config();
+/* export async function getStaticProps(context) {
+   require("dotenv").config();
   const query = context.query.subject;
   const URI = process.env.MONGO_URI;
   const options = {
@@ -61,6 +71,7 @@ export async function getServerSideProps(context) {
   });
 
   return {
-    props: { serializableDocs }, // will be passed to the page component as props
+    props: {}, // will be passed to the page component as props
   };
 }
+ */

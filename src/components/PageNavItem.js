@@ -1,15 +1,18 @@
 import React from "react";
+
 import { Badge, Flex, Link, Text, Box } from "@chakra-ui/react";
 
-const PageNavItem = ({ icon, num, text, link, w, dir }) => {
+const PageNavItem = ({ icon, num, text, link, w, dir, mx }) => {
   const dirValue = dir || "row";
   return (
     <Link
       href={link}
       _hover={{ textDecoration: "none" }}
       textDecor="none"
-      w={w}
       display="block"
+      justfyContent="stretch"
+      w={w}
+      mx={mx}
     >
       <Flex
         background="gray.700"
