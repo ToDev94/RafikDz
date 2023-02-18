@@ -23,10 +23,10 @@ export default function Levels({ data }) {
           <PageNavItem
             key={i}
             w="50%"
-            link="#"
+            link={item.link}
             icon={<FiFolder color="#f1f1f1" />}
             num={125}
-            text={item}
+            text={item.name}
           />
         ))}
       </Flex>
@@ -53,16 +53,25 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const eduLevel = context.params.level;
   const levelsData = {
-    secondary: ["أولى ثانوي", "ثانية ثانوي", "ثالثة ثانوي"],
-    primary: [
-      "تحضيري",
-      "أولى إبتدائي",
-      "ثانية إبتدائي",
-      "ثالثة إبتدائي",
-      "رابعة إبتدائي",
-      "خامسة إبتدائي",
+    secondary: [
+      { name: "أولى ثانوي", link: "/levels/subjects/1s" },
+      { name: "ثانية ثانوي", link: "/levels/subjects/2s" },
+      { name: "ثالثة ثانوي", link: "/levels/subjects/3s" },
     ],
-    middle: ["أولى متوسط", "ثانية متوسط", "ثالثة متوسط", "رابعة متوسط"],
+    primary: [
+      { name: "تحضيري", link: "/levels/subjects/pr" },
+      { name: "أولى إبتدائي", link: "/levels/subjects/1p" },
+      { name: "ثانية إبتدائي", link: "/levels/subjects/2p" },
+      { name: "ثالثة إبتدائي", link: "/levels/subjects/3p" },
+      { name: "رابعة إبتدائي", link: "/levels/subjects/4p" },
+      { name: "خامسة إبتدائي", link: "/levels/subjects/5p" },
+    ],
+    middle: [
+      { name: "أولى متوسط", link: "/levels/subjects/1m" },
+      { name: "ثانية متوسط", link: "/levels/subjects/2m" },
+      { name: "ثالثة متوسط", link: "/levels/subjects/3m" },
+      { name: "رابعة متوسط", link: "/levels/subjects/4m" },
+    ],
   };
   return {
     // Passed to the page component as props

@@ -6,7 +6,7 @@ import { Flex, Box, Heading } from "@chakra-ui/react";
 import PageNavItem from "@/components/PageNavItem";
 import { FiFolder } from "react-icons/fi";
 
-const subjects = (props) => {
+const subjects = ({ data }) => {
   const navList = [
     { id: 1, subjectName: "علوم اسلامية" },
     { id: 2, subjectName: "علوم فيزيائية" },
@@ -55,7 +55,7 @@ const subjects = (props) => {
         maxH="100%"
         alignItems="center"
       >
-        {navList.map((item) => (
+        {data.map((item) => (
           <PageNavItem
             key={item.id}
             dir="row-reverse"
@@ -63,18 +63,7 @@ const subjects = (props) => {
             link="#"
             icon={<FiFolder color="#f1f1f1" />}
             num={125}
-            text={item.subjectName}
-          />
-        ))}
-        {navList.map((item) => (
-          <PageNavItem
-            key={item.id}
-            dir="row-reverse"
-            w={["20rem", "25rem", "30rem"]}
-            link="#"
-            icon={<FiFolder color="#f1f1f1" />}
-            num={125}
-            text={item.subjectName}
+            text={item.name}
           />
         ))}
       </Flex>
@@ -88,19 +77,51 @@ subjects.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
-/* export async function getStaticPaths() {
+export async function getStaticPaths() {
   return {
-    paths: [{ params: { subjects: "math" } }],
+    paths: [
+      { params: { subjects: "2s" } },
+      { params: { subjects: "1s" } },
+      { params: { subjects: "3s" } },
+      { params: { subjects: "4m" } },
+      { params: { subjects: "3m" } },
+      { params: { subjects: "2m" } },
+      { params: { subjects: "1m" } },
+      { params: { subjects: "5p" } },
+      { params: { subjects: "4p" } },
+      { params: { subjects: "3p" } },
+      { params: { subjects: "2p" } },
+      { params: { subjects: "1p" } },
+      { params: { subjects: "pr" } },
+    ],
     fallback: false, // can also be true or 'blocking'
   };
 }
 
 export async function getStaticProps(context) {
-  const docRef = doc(db, "primary", "preschool");
-  const docSnap = await getDoc(docRef);
-  console.log("Document data:", docSnap.data());
+  let data;
+  switch (context.params.subjects) {
+    case "1s":
+    case "2s":
+    case "3s":
+      data = [
+        { id: 1, name: "اللغة العربية", link: "#" },
+        { id: 2, name: "اللغة الإنجليزية", link: "#" },
+        { id: 3, name: "اللغة الفرنسية", link: "#" },
+        { id: 4, name: "اللغة الامازيغية", link: "#" },
+        { id: 5, name: "الرياضيات", link: "#" },
+        { id: 6, name: "العلوم الطبيعية", link: "#" },
+        { id: 7, name: "العلوم الفيزيائية", link: "#" },
+        { id: 8, name: "التاريخ و الجغرافيا", link: "#" },
+        { id: 9, name: "العلوم الأسلامية", link: "#" },
+        { id: 10, name: "التربية الفنية", link: "#" },
+      ];
+      break;
 
+    default:
+      break;
+  }
   return {
-    props: { levels: docSnap.data() },
+    props: { data },
   };
-} */
+}
