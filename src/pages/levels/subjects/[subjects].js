@@ -119,6 +119,18 @@ export async function getStaticProps(context) {
       break;
 
     default:
+      data = [
+        { id: 1, name: "اللغة العربية", link: "#" },
+        { id: 2, name: "اللغة الإنجليزية", link: "#" },
+        { id: 3, name: "اللغة الفرنسية", link: "#" },
+        { id: 4, name: "اللغة الامازيغية", link: "#" },
+        { id: 5, name: "الرياضيات", link: "#" },
+        { id: 6, name: "العلوم الطبيعية", link: "#" },
+        { id: 7, name: "العلوم الفيزيائية", link: "#" },
+        { id: 8, name: "التاريخ و الجغرافيا", link: "#" },
+        { id: 9, name: "العلوم الأسلامية", link: "#" },
+        { id: 10, name: "التربية الفنية", link: "#" },
+      ];
       break;
   }
   return {
