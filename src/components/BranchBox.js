@@ -3,7 +3,11 @@ import React from "react";
 import PageNavItem from "./PageNavItem";
 import { FiFolder } from "react-icons/fi";
 
-const BranchBox = () => {
+const BranchBox = ({ title, branchCode, queries }) => {
+  const link =
+    "/levels/subjects/subject/viewcontent/" +
+    queries.join("/") +
+    `/${branchCode}`;
   return (
     <Flex
       direction="column"
@@ -28,7 +32,7 @@ const BranchBox = () => {
         px={4}
         textAlign="center"
       >
-        أولى جذع مشترك علوم وتكنولوجيا
+        {title}
       </Heading>
       <Flex
         direction="column"
@@ -37,9 +41,24 @@ const BranchBox = () => {
         justifyContent="center"
         width="100%"
       >
-        <PageNavItem w="100%" icon={<FiFolder />} text="دروس" />
-        <PageNavItem w="100%" icon={<FiFolder />} text="إمتحانات و فروض" />
-        <PageNavItem icon={<FiFolder />} w="100%" text="كتب مدرسية و خارجية" />
+        <PageNavItem
+          w="100%"
+          icon={<FiFolder />}
+          text="دروس"
+          link={link + "/lessons"}
+        />
+        <PageNavItem
+          w="100%"
+          icon={<FiFolder />}
+          text="إمتحانات و فروض"
+          link={link + "/exams"}
+        />
+        <PageNavItem
+          icon={<FiFolder />}
+          w="100%"
+          text="كتب مدرسية و خارجية"
+          link={link + "/books"}
+        />
       </Flex>
     </Flex>
   );

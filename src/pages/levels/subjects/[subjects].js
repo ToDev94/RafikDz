@@ -7,23 +7,6 @@ import PageNavItem from "@/components/PageNavItem";
 import { FiFolder } from "react-icons/fi";
 
 const subjects = ({ data }) => {
-  const navList = [
-    { id: 1, subjectName: "علوم اسلامية" },
-    { id: 2, subjectName: "علوم فيزيائية" },
-    { id: 3, subjectName: "علوم اسلامية" },
-    { id: 4, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-    { id: 5, subjectName: "علوم اسلامية" },
-  ];
   return (
     <Flex
       direction="column"
@@ -61,7 +44,7 @@ const subjects = ({ data }) => {
             key={item.id}
             dir="row-reverse"
             w={{ base: "100%", md: "100%", lg: "25rem" }}
-            link="#"
+            link={item.link}
             icon={<FiFolder color="#f1f1f1" />}
             num={125}
             text={item.name}
@@ -101,21 +84,70 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   let data;
-  switch (context.params.subjects) {
+  const level = context.params.subjects;
+  switch (level) {
     case "1s":
       data = [
-        { id: 1, name: "اللغة العربية", link: "#" },
-        { id: 2, name: "اللغة الإنجليزية", link: "#" },
-        { id: 3, name: "اللغة الفرنسية", link: "#" },
-        { id: 4, name: "اللغة الامازيغية", link: "#" },
-        { id: 5, name: "الرياضيات", link: "#" },
-        { id: 6, name: "العلوم الطبيعية", link: "#" },
-        { id: 7, name: "العلوم الفيزيائية", link: "#" },
-        { id: 8, name: "التاريخ و الجغرافيا", link: "#" },
-        { id: 9, name: "العلوم الأسلامية", link: "#" },
-        { id: 10, name: "التربية الفنية", link: "#" },
-        { id: 10, name: "التكنولوجيا", link: "#" },
-        { id: 10, name: "الإعلام الآلي", link: "#" },
+        {
+          id: 1,
+          name: "اللغة العربية",
+          link: `subject/${level}/ar`,
+        },
+        {
+          id: 2,
+          name: "اللغة الإنجليزية",
+          link: `subject/${level}/en`,
+        },
+        {
+          id: 3,
+          name: "اللغة الفرنسية",
+          link: `subject/${level}/fr`,
+        },
+        {
+          id: 4,
+          name: "اللغة الامازيغية",
+          link: `subject/${level}/am`,
+        },
+        {
+          id: 5,
+          name: "الرياضيات",
+          link: `subject/${level}/mth`,
+        },
+        {
+          id: 6,
+          name: "العلوم الطبيعية",
+          link: `subject/${level}/sn`,
+        },
+        {
+          id: 7,
+          name: "العلوم الفيزيائية",
+          link: `subject/${level}/phy`,
+        },
+        {
+          id: 8,
+          name: "التاريخ و الجغرافيا",
+          link: `subject/${level}/hisgeo`,
+        },
+        {
+          id: 9,
+          name: "العلوم الأسلامية",
+          link: `subject/${level}/si`,
+        },
+        {
+          id: 10,
+          name: "التربية الفنية",
+          link: `subject/${level}/eduart`,
+        },
+        {
+          id: 11,
+          name: "التكنولوجيا",
+          link: `subject/${level}/tech`,
+        },
+        {
+          id: 12,
+          name: "الإعلام الآلي",
+          link: `subject/${level}/info`,
+        },
       ];
       break;
     case "2s":

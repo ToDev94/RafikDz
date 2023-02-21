@@ -1,11 +1,11 @@
 import React from "react";
 import { Flex, Box, Heading } from "@chakra-ui/react";
 import Layout from "../../layout";
-import PdfViewer from "@/components/PdfViewer";
 
 import BranchBox from "@/components/BranchBox";
+import clientPromise from "lib/mongodb";
 
-const subject = (props) => {
+const subject = ({ data, queries }) => {
   return (
     <Flex
       direction="column"
@@ -27,9 +27,14 @@ const subject = (props) => {
         </Heading>
       </Box>
       <Flex flexWrap="wrap" justifyContent="center" gap={5} w="90%">
-        <BranchBox />
-        <BranchBox />
-        <BranchBox />
+        {data.map((item) => (
+          <BranchBox
+            key={item._id}
+            title={item.branchName}
+            branchCode={item.branchObj}
+            queries={queries}
+          />
+        ))}
       </Flex>
     </Flex>
   );
@@ -40,38 +45,22 @@ export default subject;
 subject.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
-/* 
-export async function getStaticPaths() {
-  return {
-    paths: [{ params: { subject: "test" } }],
-    fallback: false, // can also be true or 'blocking'
-  };
-} */
 
-/* export async function getStaticProps(context) {
-   require("dotenv").config();
-  const query = context.query.subject;
-  const URI = process.env.MONGO_URI;
-  const options = {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  };
+export async function getServerSideProps(context) {
+  const queries = context.query.subject;
+  const collectionName = queries.join("-");
 
-  const client = new MongoClient(URI, options);
-  const clientPromise = client.connect();
-  const clientHandle = await clientPromise;
-  const items = await clientHandle
-    .db("rafikdzdb")
-    .collection("s-islamics")
-    .find({})
-    .toArray();
-
-  const serializableDocs = items.map((item) => {
+  const client = await clientPromise;
+  const db = client.db("rafikdzdb");
+  const resultsPromies = db
+    .collection(collectionName)
+    .find({ branchObj: { $exists: true } });
+  const branches = await resultsPromies.toArray();
+  const serializableBranches = branches.map((item) => {
     return { ...item, _id: item._id.toString() };
   });
 
   return {
-    props: {}, // will be passed to the page component as props
+    props: { data: serializableBranches, queries }, // will be passed to the page component as props
   };
 }
- */
