@@ -38,9 +38,15 @@ export default function Home() {
             justifyItems="center"
             paddingBottom={["2rem", "4rem"]}
           >
-            <LevelPrev href="/levels/secondary">الثانوي</LevelPrev>
-            <LevelPrev href="/levels/middle">المتوسط</LevelPrev>
-            <LevelPrev href="/levels/primary">الابتدائي</LevelPrev>
+            <LevelPrev imgSrc="./highschool.jpg" href="/levels/secondary">
+              الثانوي
+            </LevelPrev>
+            <LevelPrev imgSrc="./teenagers.jpg" href="/levels/middle">
+              المتوسط
+            </LevelPrev>
+            <LevelPrev imgSrc="./kids.jpg" href="/levels/primary">
+              الابتدائي
+            </LevelPrev>
           </SimpleGrid>
         </Box>
       </VStack>

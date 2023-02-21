@@ -3,7 +3,7 @@ import React from "react";
 import NextLink from "next/link";
 import { Box, Image, Link, VStack, Text } from "@chakra-ui/react";
 
-const LevelPrev = ({ children, href }) => {
+const LevelPrev = ({ children, href, imgSrc }) => {
   return (
     <Link
       as={NextLink}
@@ -31,7 +31,7 @@ const LevelPrev = ({ children, href }) => {
             overflow="hidden"
           >
             <Image
-              src="./students.jpg"
+              src={imgSrc}
               w={["100px", "125px", "200px"]}
               maxW="none"
               objectFit="cover"
