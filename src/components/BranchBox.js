@@ -5,9 +5,7 @@ import { FiFolder } from "react-icons/fi";
 
 const BranchBox = ({ title, branchCode, queries }) => {
   const link =
-    "/levels/subjects/subject/viewcontent/" +
-    queries.join("/") +
-    `/${branchCode}`;
+    "/levels/subjects/subject/terms/" + queries.join("/") + `/${branchCode}`;
   return (
     <Flex
       direction="column"

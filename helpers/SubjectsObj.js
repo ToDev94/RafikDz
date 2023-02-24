@@ -258,3 +258,7 @@ const getSubjectsObj = (level) => {
 };
 
 export default getSubjectsObj;
+
+export const getSerialzedObjs = () => {
+  return;
+};
