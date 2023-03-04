@@ -27,6 +27,110 @@ const test = async (req, res) => {
       pdfLink:
         "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
     },
+    {
+      grade: "1s",
+      title: "درس  الوحدة الرابعة للغة العربية",
+
+      subject: "ar",
+      branchName: "جذع مشترك علوم و تكنولوجيا",
+      branchCode: "sc",
+      type: "lessons",
+      term: "ter1",
+      year: "2021",
+      pdfLink:
+        "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
+    },
+    {
+      grade: "1s",
+      title: "درس  الوحدة الرابعة للغة العربية",
+
+      subject: "ar",
+      branchName: "جذع مشترك علوم و تكنولوجيا",
+      branchCode: "sc",
+      type: "lessons",
+      term: "ter1",
+      year: "2021",
+      pdfLink:
+        "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
+    },
+    {
+      grade: "1s",
+      title: "درس  الوحدة الرابعة للغة العربية",
+
+      subject: "ar",
+      branchName: "جذع مشترك علوم و تكنولوجيا",
+      branchCode: "sc",
+      type: "lessons",
+      term: "ter1",
+      year: "2021",
+      pdfLink:
+        "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
+    },
+    {
+      grade: "1s",
+      title: "درس  الوحدة الرابعة للغة العربية",
+
+      subject: "ar",
+      branchName: "جذع مشترك علوم و تكنولوجيا",
+      branchCode: "sc",
+      type: "lessons",
+      term: "ter1",
+      year: "2021",
+      pdfLink:
+        "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
+    },
+    {
+      grade: "1s",
+      title: "درس  الوحدة الرابعة للغة العربية",
+
+      subject: "ar",
+      branchName: "جذع مشترك علوم و تكنولوجيا",
+      branchCode: "sc",
+      type: "lessons",
+      term: "ter1",
+      year: "2021",
+      pdfLink:
+        "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
+    },
+    {
+      grade: "1s",
+      title: "درس  الوحدة الرابعة للغة العربية",
+
+      subject: "ar",
+      branchName: "جذع مشترك علوم و تكنولوجيا",
+      branchCode: "sc",
+      type: "lessons",
+      term: "ter1",
+      year: "2021",
+      pdfLink:
+        "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
+    },
+    {
+      grade: "1s",
+      title: "درس  الوحدة الرابعة للغة العربية",
+
+      subject: "ar",
+      branchName: "جذع مشترك علوم و تكنولوجيا",
+      branchCode: "sc",
+      type: "lessons",
+      term: "ter1",
+      year: "2021",
+      pdfLink:
+        "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
+    },
+    {
+      grade: "1s",
+      title: "درس  الوحدة الرابعة للغة العربية",
+
+      subject: "ar",
+      branchName: "جذع مشترك علوم و تكنولوجيا",
+      branchCode: "sc",
+      type: "lessons",
+      term: "ter1",
+      year: "2021",
+      pdfLink:
+        "https://drive.google.com/file/d/1tFh8YMVPekoL-jHSHR0OzgMb-tDYD1bZ/preview",
+    },
   ];
   const client = await clientPromise;
   const db = client.db("rafikdzdb");

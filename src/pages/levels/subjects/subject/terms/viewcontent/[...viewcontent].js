@@ -26,14 +26,14 @@ const Viewcontent = ({ docs, currentDocId, queries }) => {
   }, [currentDocNum]);
 
   const handleNextClick = () => {
-    if (subNumber < docs.length - 1) {
-      setSubNumber((prevSub) => prevSub + 1);
+    if (currentDocNum < docs.length - 1) {
+      setCurrentDocNum((prevSub) => prevSub + 1);
     }
     return;
   };
   const handlePrevClick = () => {
-    if (subNumber > 0) {
-      setSubNumber((prevSub) => prevSub - 1);
+    if (currentDocNum > 0) {
+      setCurrentDocNum((prevSub) => prevSub - 1);
     }
     return;
   };
